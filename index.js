@@ -22,7 +22,7 @@ const uploadFileToCOS = (cos, path) => {
             Bucket: cos.bucket,
             Region: cos.region,
             Key: Path.join(cos.remotePath, path),
-            StorageClass: 'STANDARD',
+            StorageClass: cos.storageClass,
             Body: fs.createReadStream(Path.join(cos.localPath, path)),
         }, function(err, data) {
             if (err) {
@@ -165,6 +165,7 @@ try {
         }),
         bucket: core.getInput('cos_bucket'),
         region: core.getInput('cos_region'),
+        storageClass: core.getInput('cos_storage_class') || 'STANDARD',
         localPath: core.getInput('local_path'),
         remotePath: core.getInput('remote_path'),
         clean: core.getInput('clean') === 'true'

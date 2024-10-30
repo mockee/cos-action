@@ -28,6 +28,10 @@ Github Action to upload to Tencent Cloud COS
 
 **Required** COS path to put the local files in on COS.
 
+### `cos_storage_class`
+
+**Optional** COS storage class. Default is `STANDARD`.
+
 ### `clean`
 
 **Optional** Set to true for cleaning files on COS path which are not existed in local path. Default is false.
@@ -45,6 +49,7 @@ with:
   secret_key: ${{ secrets.TENCENT_CLOUD_SECRET_KEY }}
   cos_bucket: ${{ secrets.COS_BUCKET }}
   cos_region: ${{ secrets.COS_REGION }}
+  cos_storage_class: MAZ_STANDARD
   local_path: build
   remote_path: docroot/static
   clean: true

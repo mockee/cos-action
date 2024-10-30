@@ -28,6 +28,9 @@ inputs:
   accelerate:
     description: 'Set to true for using accelerate domain to upload files. Default is false'
     required: false
+  cos_storage_class:
+    description: 'COS storage class'
+    required: false
 runs:
   using: 'node12'
   main: 'index.js'
